@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Database Operations Concepts</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <section id="mySection">
+      <div id="title">
+        <p>Database Operations (CRUD)</p>
+      </div>
+      <div id="mainContent">
+        <div class="intro">
+          <p>
+            C.R.U.D, standing for Create, Read, Update, Delete, are the four
+            basic functions of persistent storage. Alternate words are sometimes
+            used whe defining the four basic functions of CRUD, such as
+            <i>retrieve</i> instead of <b>read</b>, <i>modifiy</i> instead of
+            <b>update</b>, or <i>destroy</i> instead of <b>delete</b>. CRUD is
+            also sometimes used to describe user interface (UI) conventions that
+            facilitate viewing, searching, and changing information often usin
+            computer-based forms and reports.
+          </p>
+
+          <div class="imageContainer">
+            <img src="assets/img/crud.png" alt="CRUD" />
+            <figcaption>CRUD Image Example</figcaption>
+          </div>
+
+          <p>
+            We will be taking a look at SQL, which has different names for the
+            CRUD functions, these are called <b>Statements</b>
+          </p>
+          <p>Below are the names:</p>
+
+          <div id="tableContainer">
+            <table id="myTable">
+              <tr>
+                <th>Operation</th>
+                <th>SQL</th>
+              </tr>
+              <tr>
+                <td>Create</td>
+                <td>INSERT</td>
+              </tr>
+              <tr>
+                <td>Read</td>
+                <td>SELECT</td>
+              </tr>
+              <tr>
+                <td>Update</td>
+                <td>UPDATE</td>
+              </tr>
+              <tr>
+                <td>Delete</td>
+                <td>DELETE</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="article">
+          <p><b>INSERT / Create</b></p>
+
+          <p>
+            In Database Systems, Insert is used for creating and therefore,
+            inserting new records into the table.
+          </p>
+
+          <p>
+            To insert a new record into a table you need to use the keyword
+            INSERT INTO, and then specify the table name and the columns that
+            you want to insert. The columns go inside of the parenthesis and
+            then we specify a VALUES clause.
+          </p>
+
+          <p>
+            In this example, our table is named called 'Users' and it has 2
+            columns (values): email and password. This is how we insert a email
+            and password into the records.
+          </p>
+
+          <div class="codeExample">
+            <code>
+              <pre>
+INSERT INTO Users
+VALUES ("john@gmail.com","password");
+                            </pre
+              >
+            </code>
+          </div>
+
+          <p>
+            The table will now be updated with that record. But what if we want
+            to insert multiple records, well lets see how to do that:
+          </p>
+
+          <div class="codeExample">
+            <code>
+              <pre>
+INSERT INTO Users
+VALUES ("sam@gmail.com","password"),("steve@gmail.com","password");
+                            </pre
+              >
+            </code>
+          </div>
+
+          <p>
+            Not hard? Yup, just get the syntax right and you'll be fine. There
+            are other ways to insert records using UNION etc but we will cover
+            that in a later chapter.
+          </p>
+        </div>
+        <div class="article">
+          <p><b>SELECT / Read</b></p>
+
+          <p>The SELECT statement retrieves data.</p>
+
+          <p>
+            To retrieve data you need to use the syntax below, its pretty
+            straight forward.
+          </p>
+
+          <p>
+            Let's say, with the new records we inserted earlier, we now want to
+            retrieve the data and display it in front of us.
+          </p>
+
+          <div class="codeExample">
+            <code>
+              <pre>
+SELECT * FROM Users;
+                            </pre
+              >
+            </code>
+          </div>
+
+          <p>
+            That code above would retrieve the records and displays ALL (using
+            the * - called the Wildcard Character) the records in that table.
+            But what if we wanted to select a specific email, like
+            'sam@gmail.com' for example?
+          </p>
+
+          <div class="codeExample">
+            <code>
+              <pre>
+SELECT * FROM Users WHERE colour = 'sam@gmail.com';
+                            </pre
+              >
+            </code>
+          </div>
+
+          <p>
+            This result will return only the record where the email column has
+            'sam@gmail.com'. In this instance only the 2nd record will show.
+          </p>
+        </div>
+        <div class="article">
+          <p><b>UPDATE / Update</b></p>
+
+          <p>
+            Using the UPDATE statement in SQL, changes the existing records of
+            the table.
+          </p>
+
+          <p>
+            The best syntax for updating your records is to use the UPDATE, SET
+            and WHERE keywords.
+          </p>
+
+          <p>
+            Let's say earlier, we inserted the wrong password of the 3rd record
+            ("steve@gmail.com","password") and actually, the password was
+            actually "Password". Let's try to update the records to change that:
+          </p>
+
+          <div class="codeExample">
+            <code>
+              <pre>
+UPDATE Users
+SET password = 'Password'
+WHERE email = 'steve@gmail.com';
+                            </pre
+              >
+            </code>
+          </div>
+
+          <p>
+            We can now use the SELECT statement to check and see if it has
+            changed. And most likely it has :D.
+          </p>
+        </div>
+        <div class="article">
+          <p><b>DELETE / Delete</b></p>
+
+          <p>
+            DELETE in SQL operations refers to removing a record from table.
+          </p>
+
+          <p>
+            Using DELETE, FROM and WHERE you can target the specific record(s)
+            for deletion.
+          </p>
+
+          <p>
+            Let's say we needed to remove a record as the user has left the
+            system. The item having a unique email.
+          </p>
+
+          <div class="codeExample">
+            <code>
+              <pre>
+DELETE FROM Users
+WHERE email = 'john@gmail.com';
+                            </pre
+              >
+            </code>
+          </div>
+          <p>
+            Retrieving the results again will show that the record had been
+            removed.
+          </p>
+        </div>
+        <div class="article">
+          <p><b>Other</b></p>
+
+          <p>
+            You also need to create the table to perform the database operations
+            and you can do that like this:
+          </p>
+
+          <div class="codeExample">
+            <code>
+              <pre>
+CREATE TABLE Users;
+                            </pre
+              >
+            </code>
+          </div>
+
+          <p>
+            As well as creating the table, if you ever need to permanently
+            remove the table you need to drop the table, dropping removes the
+            data as well as the table, whilst deleting does the same but it can
+            be rolled back. Drop is the cleaner option if you are just
+            practicing with databases.
+          </p>
+
+          <div class="codeExample">
+            <code>
+              <pre>
+DROP TABLE Users;
+                            </pre
+              >
+            </code>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div id="footer"></div>
+  </body>
+</html>

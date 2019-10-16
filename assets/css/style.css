@@ -1,0 +1,79 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: rgb(196, 205, 223);
+  color: black;
+  font-family: "Patrick Hand SC", cursive;
+}
+
+#title {
+  text-align: center;
+  font-size: 24px;
+}
+
+#mySection {
+  font-size: 16px;
+  letter-spacing: 1px;
+  position: relative;
+  width: 90%;
+  left: 5%;
+}
+
+.imageContainer {
+  width: 100%;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+}
+
+figcaption {
+  font-weight: bold;
+}
+
+.codeExample {
+  padding: 5px;
+  background-color: rgb(0, 0, 0);
+  border: 1px solid rgb(255, 255, 255);
+  color: white;
+}
+
+code {
+  display: inline;
+}
+
+pre {
+  overflow-x: auto;
+}
+
+.article > p:nth-child(1) {
+  font-size: 18px;
+}
+
+#tableContainer {
+  text-align: center;
+}
+
+#myTable,
+th,
+td {
+  border: 1px solid black;
+  text-align: center;
+}
+
+#myTable {
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  margin: 3px;
+}
+
+th,
+td {
+  padding: 2px;
+}
+
+#footer {
+  padding: 10px;
+}
